@@ -131,6 +131,8 @@ function buildMessage(from, msg) {
     p.innerHTML = parseText(msg.replace(/\n/g, '<br/>'));
     article.appendChild(p);
 
+    parseImages(p);
+
     /*var time = document.createElement('time');
     time.setAttribute('class', 'message-time');
     time.appendChild(document.createTextNode(parseDate(new Date())));
@@ -160,6 +162,19 @@ function parseText(str) {
     }
 
     return str.replace(/https?:\/\/[^\s]+/g, function (match) {
-        return '<a href="' + match + '" target="_blank">' + match + '</a>';
+        return '<a href="' + match + '" target="_blank" class="link">' + match + '</a>';
     });
+}
+
+function parseImages(p) {
+    var links = p.getElementsByClassName('link');
+    for (var i = 0, img; i < links.length; i += 1) {
+        img = new Image();
+        img.onload = (function (img, a) {
+            return function () {
+                a.parentNode.replaceChild(img, a);
+            };
+        })(img, links[i]);
+        img.src = links[i].innerHTML;
+    }
 }
