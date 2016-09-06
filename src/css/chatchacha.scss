@@ -11,15 +11,44 @@ $TITLE_HEIGHT: 50px;
 
 $CONTAINER_BORDER_CLR: #ccc;
 
-$MSG_HEIGHT: 90px;
+$MSG_HEIGHT: 60px;
 
 $INPUT_BG: #fff;
 $INPUT_PADD: 10px;
+
+@font-face {
+    font-family: 'openSans';
+    src: url('../font/open_sans/OpenSans-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'openSans';
+    src: url('../font/open_sans/OpenSans-Bold.ttf');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'openSans';
+    src: url('../font/open_sans/OpenSans-Italic.ttf');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'openSans';
+    src: url('../font/open_sans/OpenSans-BoldItalic.ttf');
+    font-weight: bold;
+    font-style: italic;
+}
 
 html,
 body {
     margin: 0;
     padding: 0;
+    font-family: 'openSans';
     background: $BODY_BG;
 }
 
@@ -32,37 +61,73 @@ body {
 }
 
 /***********************************************************************************************************************
- * TITLE
+ * HEADER
  **********************************************************************************************************************/
 
-.title {
-    margin: 0 $BODY_MRG 10px;
+.header {
+    padding: 0 50px;
+    height: 120px;
+    color: #fff;
+    background: #1abc9c;
+    border-bottom: 1px solid #16a085;
+
+    &:before {
+        content: '';
+        display: inline-block;
+        vertical-align: middle;
+        height: 120px;
+        line-height: 120px;
+    }
+}
+
+.header-logo {
+    margin: 0;
     padding: 0;
-    height: $TITLE_HEIGHT;
-    line-height: $TITLE_HEIGHT;
-    color: $TITLE_CLR;
-    font-size: 30px;
+    width: 64px;
+    height: 64px;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.header-titleContainer {
+    margin: 0 0 0 20px;
+    padding: 0;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.header-title,
+.header-subtitle {
+    margin: 0;
+    padding: 0;
     font-weight: normal;
+}
+
+.header-title {
+    font-size: 30px;
+}
+
+.header-subtitle {
+    margin-left: 50px;
+    font-style: italic;
+    font-size: 15px;
 }
 
 /***********************************************************************************************************************
  * CONTAINER
  **********************************************************************************************************************/
 
-.messages {
+.messageContainer {
     position: absolute;
     width: 100%;
-    top: $TITLE_HEIGHT;
-    bottom: 0;
+    top: 121px;
+    bottom: $MSG_HEIGHT;
     overflow-y: scroll;
-    border-top: 1px solid $CONTAINER_BORDER_CLR;
-    border-bottom: 1px solid $CONTAINER_BORDER_CLR;
 }
 
 .message {
     position: relative;
-    padding: 5px;
-    border-top: 1px solid $CONTAINER_BORDER_CLR;
+    padding: 10px;
     border-bottom: 1px solid $CONTAINER_BORDER_CLR;
 
     &:after {
@@ -70,6 +135,10 @@ body {
         content: '';
         clear: left;
     }
+}
+
+.message:last-child {
+    border-bottom: none;
 }
 
 .message-thumbnail {
@@ -83,6 +152,7 @@ body {
     margin: 0;
     padding: 0 10px;
     float: left;
+    font-size: 15px;
     font-weight: bold;
 }
 
@@ -90,17 +160,16 @@ body {
     float: left;
     margin: 0;
     padding: 0;
+    font-size: 15px;
 
     img {
         vertical-align: top;
     }
 }
 
-.message-time {
-    position: absolute;
-    right: 0;
-    font-size: 9px;
-    font-style: italic;
+.message-name,
+.message-content {
+    line-height: 30px;
 }
 
 /***********************************************************************************************************************
@@ -110,13 +179,13 @@ body {
 .input {
     position: absolute;
     left: 0;
-    right: 0;
+    right: $MSG_HEIGHT;
+    bottom: 0;
     height: $MSG_HEIGHT;
-    bottom: -$MSG_HEIGHT - 1px;
-    border-bottom: 1px solid $CONTAINER_BORDER_CLR;
 }
 
 .input-field {
+    position: absolute;
     margin: 0;
     padding: $INPUT_PADD;
     width: 100%;
@@ -126,5 +195,25 @@ body {
     background: $INPUT_BG;
     resize: none;
     outline: none;
+    color: #2c3e50;
+    font-family: 'openSans';
     box-sizing: border-box;
+    border-top: 1px solid #95a5a6;
+}
+
+.input-button {
+    position: absolute;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    height: $MSG_HEIGHT;
+    line-height: $MSG_HEIGHT;
+    color: #fff;
+    font-size: 20px;
+    background: #16a085;
+    border: none;
+    width: $MSG_HEIGHT;
+    right: -$MSG_HEIGHT;
+    outline: none;
+    cursor: pointer;
 }

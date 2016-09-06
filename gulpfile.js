@@ -30,6 +30,10 @@ gulp.task('copy', function () {
         .src(path.join('src', 'img', '**/*'))
         .pipe(gulp.dest(path.join('build', 'img')));
 
+    gulp
+        .src(path.join('src', 'font', '**/*'))
+        .pipe(gulp.dest(path.join('build', 'font')));
+
     return gulp
         .src(path.join('src', 'index.php'))
         .pipe(gulp.dest('build'));

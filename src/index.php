@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
     <head>
         <title>Chatchacha !</title>
         <link rel="stylesheet" media="screen" type="text/css" href="./css/chatchacha.css" />
@@ -8,15 +8,24 @@
     </head>
 
     <body>
-        <section class="container">
-            <header>
-                <h1 class="title">Chatchatcha</h1>
-            </header>
+        <header class="header">
+            <picture class="header-logo">
+                <img src="http://placehold.it/64x64" alt="Chatchacha" />
+            </picture>
 
-            <section class="messages" id="container"></section>
-            <aside class="input">
-                <textarea class="input-field" id="input" placeholder="Tape ton texte ici..."></textarea>
-            </aside>
-        </section>
+            <hgroup class="header-titleContainer">
+                <h1 class="header-title">Chatchacha</h1>
+                <h2 class="header-subtitle">Le chat de la tchatche !</h2>
+            </hgroup>
+
+            <aside></aside>
+        </header>
+
+        <section class="messageContainer" id="container"></section>
+
+        <footer class="input">
+            <textarea class="input-field" placeholder="Tapez votre message ici..." id="input"></textarea>
+            <button class="input-button">&gt;</button>
+        </footer>
     </body>
 </html>

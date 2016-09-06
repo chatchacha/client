@@ -117,7 +117,7 @@ function buildMessage(from, msg) {
     picture.setAttribute('class', 'message-thumbnail');
 
     var img = document.createElement('img');
-    img.setAttribute('src', 'http://loremflickr.com/50/50/kitten');
+    img.setAttribute('src', 'http://placehold.it/50x50');
     picture.appendChild(img);
     article.appendChild(picture);
 
@@ -128,13 +128,13 @@ function buildMessage(from, msg) {
 
     var p = document.createElement('p');
     p.setAttribute('class', 'message-content');
-    p.innerHTML = parseText(msg.replace("\n", '<br/>'));
+    p.innerHTML = parseText(msg.replace(/\n/g, '<br/>'));
     article.appendChild(p);
 
-    var time = document.createElement('time');
+    /*var time = document.createElement('time');
     time.setAttribute('class', 'message-time');
     time.appendChild(document.createTextNode(parseDate(new Date())));
-    article.appendChild(time);
+    article.appendChild(time);*/
 
     return article;
 }
