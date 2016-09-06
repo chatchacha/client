@@ -159,5 +159,7 @@ function parseText(str) {
         str = str.replace(smileys[i][0], '<img src="img/smileys/' + smileys[i][1] + '.gif" />');
     }
 
-    return str;
+    return str.replace(/https?:\/\/[^\s]+/g, function (match) {
+        return '<a href="' + match + '" target="_blank">' + match + '</a>';
+    });
 }
