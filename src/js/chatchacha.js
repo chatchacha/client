@@ -95,7 +95,7 @@ window.addEventListener('load', function () {
     down = this.offsetHeight + this.scrollTop >= this.scrollHeight;
   });
 
-  var socket = window.socket = io('http://localhost:8080');
+  var socket = window.socket = io('http://chatchacha.fr:8181');
   socket.on('message', function(from, msg) {
     appendMessage(from, msg);
   });
