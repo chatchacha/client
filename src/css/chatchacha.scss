@@ -1,0 +1,130 @@
+/***********************************************************************************************************************
+ * MAIN
+ **********************************************************************************************************************/
+
+/* vars */
+$BODY_BG: #fff;
+$BODY_MRG: 40px;
+
+$TITLE_CLR: #669900;
+$TITLE_HEIGHT: 50px;
+
+$CONTAINER_BORDER_CLR: #ccc;
+
+$MSG_HEIGHT: 90px;
+
+$INPUT_BG: #fff;
+$INPUT_PADD: 10px;
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background: $BODY_BG;
+}
+
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: $BODY_MRG + $MSG_HEIGHT;
+}
+
+/***********************************************************************************************************************
+ * TITLE
+ **********************************************************************************************************************/
+
+.title {
+    margin: 0 $BODY_MRG 10px;
+    padding: 0;
+    height: $TITLE_HEIGHT;
+    line-height: $TITLE_HEIGHT;
+    color: $TITLE_CLR;
+    font-size: 30px;
+    font-weight: normal;
+}
+
+/***********************************************************************************************************************
+ * CONTAINER
+ **********************************************************************************************************************/
+
+.messages {
+    position: absolute;
+    width: 100%;
+    top: $TITLE_HEIGHT;
+    bottom: 0;
+    overflow-y: scroll;
+    border-top: 1px solid $CONTAINER_BORDER_CLR;
+    border-bottom: 1px solid $CONTAINER_BORDER_CLR;
+}
+
+.message {
+    position: relative;
+    padding: 5px;
+    border-top: 1px solid $CONTAINER_BORDER_CLR;
+    border-bottom: 1px solid $CONTAINER_BORDER_CLR;
+
+    &:after {
+        display: block;
+        content: '';
+        clear: left;
+    }
+}
+
+.message-thumbnail {
+    float: left;
+    display: block;
+    width: 50px;
+    height: 50px;
+}
+
+.message-name {
+    margin: 0;
+    padding: 0 10px;
+    float: left;
+    font-weight: bold;
+}
+
+.message-content {
+    float: left;
+    margin: 0;
+    padding: 0;
+
+    img {
+        vertical-align: top;
+    }
+}
+
+.message-time {
+    position: absolute;
+    right: 0;
+    font-size: 9px;
+    font-style: italic;
+}
+
+/***********************************************************************************************************************
+ * MESSAGE
+ **********************************************************************************************************************/
+
+.input {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: $MSG_HEIGHT;
+    bottom: -$MSG_HEIGHT - 1px;
+    border-bottom: 1px solid $CONTAINER_BORDER_CLR;
+}
+
+.input-field {
+    margin: 0;
+    padding: $INPUT_PADD;
+    width: 100%;
+    height: $MSG_HEIGHT;
+    font-size: 14px;
+    border: none;
+    background: $INPUT_BG;
+    resize: none;
+    outline: none;
+    box-sizing: border-box;
+}
