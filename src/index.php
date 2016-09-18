@@ -4,6 +4,7 @@
         <title>Chatchacha !</title>
         <link rel="stylesheet" media="screen" type="text/css" href="./css/chatchacha.css" />
         <script type="text/javascript" src="js/vendor/socket.io.js"></script>
+        <script type="text/javascript" src="js/config.js"></script>
         <script type="text/javascript" src="js/chatchacha.js"></script>
     </head>
 

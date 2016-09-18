@@ -23,6 +23,10 @@ gulp.task('js', function () {
 // COPY STATIC FILES THAT DO NOT NEED COMPILATION
 gulp.task('copy', function () {
     gulp
+        .src([path.join('src', 'js', '**/*.js'), path.join('!src', 'js', 'chatchacha.js')])
+        .pipe(gulp.dest(path.join('build', 'js')));
+
+    gulp
         .src(path.join('node_modules', 'socket.io-client', 'socket.io.js'))
         .pipe(gulp.dest(path.join('build', 'js', 'vendor')));
 
